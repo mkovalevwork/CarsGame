@@ -5,7 +5,7 @@ public class SpawnPlayer : MonoBehaviour
     public Vector3 spawnPosition;                                             //player spawn position
     public GameObject mainCamera;                                             //mainCamera gameobject
 
-    void Start()
+    private void Start()
     {
         SaveActualCar.car.transform.position = spawnPosition;                 //setPosition
         SaveActualCar.car.transform.rotation = Quaternion.Euler(0, 0, 0);     //setRotation

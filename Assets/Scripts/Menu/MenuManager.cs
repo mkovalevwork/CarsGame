@@ -6,77 +6,68 @@ using System.Collections;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject chosenCar;
-    [SerializeField] private GameObject mainCamera;
-    [SerializeField] private UIManager UIManager;
-    [SerializeField] private GameObject[] cars;
-    private int carIndex = 0;
-    [SerializeField] private Transform[] camerasPositions; //5pos for main menu position
-
+    [SerializeField] private GameObject _chosenCar;
+    [SerializeField] private CameraController _cameraController;
+    [SerializeField] private UIController _UIController;
+    
+    public List<GameObject> _cars = new List<GameObject>();
+    private int _carIndex = 0;
 
     public Image loadingProgressBar;
+    public List<AsyncOperation> scenesToLoad = new List<AsyncOperation> ();
 
-    List<AsyncOperation> scenesToLoad = new List<AsyncOperation> ();
     public void StartButton()
     {
         
-        if (chosenCar != null)
+        if (_chosenCar != null)
         {
-            SaveActualCar.car.AddComponent<DontDestroyOnLoad>();
-            UIManager.mainCanvas.SetActive(false);
-            UIManager.chooseCarCanvas.SetActive(false);
-            UIManager.LoadingBarCanvas.SetActive(true);
+            SaveActualCar.car.AddComponent<DontDestroyOnLoad>();           
             scenesToLoad.Add(SceneManager.LoadSceneAsync(1));
+            _UIController.StartButton();
             StartCoroutine("LoadingScreen");           
         }
     }
 
     //StartManuChoseButton
-    public void ChoseCarButton()
+    public void ChooseCarButton()
     {
-        mainCamera.transform.position = camerasPositions[carIndex].position;
-        mainCamera.transform.eulerAngles = camerasPositions[carIndex].eulerAngles;
-        UIManager.mainCanvas.SetActive(false);
-        UIManager.chooseCarCanvas.SetActive(true);
+        _cameraController.ChangeCamera(_carIndex);
+        _UIController.ChooseCarButton();
     }
 
     //ChooseMenuChooseButton
     public void ChooseButton()
     {
-        chosenCar = cars[carIndex];
-        SaveActualCar.car = chosenCar;
-        Debug.Log(SaveActualCar.car.name);
-        
-        mainCamera.transform.position = camerasPositions[5].position;
-        mainCamera.transform.eulerAngles = camerasPositions[5].eulerAngles;
-        UIManager.chooseCarCanvas.SetActive(false);
-        UIManager.mainCanvas.SetActive(true);
-        UIManager.actualCarText.GetComponent<Text>().text = chosenCar.GetComponent<Car>().CarName;
+        _chosenCar = _cars[_carIndex];
+        SaveActualCar.car = _chosenCar;
+;
+        _cameraController.ChangeCamera(_cameraController.camerasPositions.Count-1);
+        _UIController.ChooseButton();
+        _UIController.GetActualCarTextComponent().text = _chosenCar.GetComponent<Car>().CarName;
+
     }
 
     public void NextCarButton()
     {
-        if (carIndex!=4)
-            carIndex++;
+        if (_carIndex != (_cars.Count-1))
+            _carIndex++;
         else
-            carIndex = 0;
+            _carIndex = 0;
 
-        mainCamera.transform.position = camerasPositions[carIndex].position;
-        mainCamera.transform.eulerAngles = camerasPositions[carIndex].eulerAngles;
+        _cameraController.ChangeCamera(_carIndex);
     }
 
     public void PreviousCarButton()
     {
-        if (carIndex != 0)
-            carIndex--;
+        if (_carIndex != 0)
+            _carIndex--;
         else
-            carIndex = 4;
+            _carIndex = (_cars.Count - 1);
 
-        mainCamera.transform.position = camerasPositions[carIndex].position;
-        mainCamera.transform.eulerAngles = camerasPositions[carIndex].eulerAngles;
+        _cameraController.ChangeCamera(_carIndex);
     }
 
-    IEnumerator LoadingScreen()
+    private IEnumerator LoadingScreen()
     {
         float totalProgress = 0;
         for (int i = 0; i < scenesToLoad.Count; i++)

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class UIMap : MonoBehaviour
 {
     public GameObject mainCanvas;
     public GameObject startButton;
@@ -12,5 +12,5 @@ public class UIManager : MonoBehaviour
     public GameObject previosCarButton;
     public GameObject nextCarButton;
 
-    public GameObject LoadingBarCanvas;
+    public GameObject loadingBarCanvas;
 }

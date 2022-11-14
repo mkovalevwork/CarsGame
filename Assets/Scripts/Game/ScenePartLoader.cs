@@ -13,8 +13,8 @@ public class ScenePartLoader : MonoBehaviour
     public Transform player;
     public float loadRange;
 
-    private bool isLoaded;
-    private bool shouldLoad;
+    private bool _isLoaded;
+    private bool _shouldLoad;
 
     private void Update()
     {
@@ -24,7 +24,7 @@ public class ScenePartLoader : MonoBehaviour
             TriggerCheck();
     }
 
-    void DistanceCheck()
+    private void DistanceCheck()
     {
         if (Vector3.Distance(player.position, transform.position) < loadRange)
             LoadScene();
@@ -32,41 +32,41 @@ public class ScenePartLoader : MonoBehaviour
             UnLoadScene();
     }
 
-    void TriggerCheck()
+    private void TriggerCheck()
     {
-        if (shouldLoad)
+        if (_shouldLoad)
             LoadScene();
         else
             UnLoadScene();
     }
 
-    void LoadScene()
+    private void LoadScene()
     {
-        if (!isLoaded)
+        if (!_isLoaded)
         {
             SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
-            isLoaded = true;
+            _isLoaded = true;
         }
     }
 
-    void UnLoadScene()
+    private void UnLoadScene()
     {
-        if (isLoaded)
+        if (_isLoaded)
         {
             SceneManager.UnloadSceneAsync(gameObject.name);
-            isLoaded = false;
+            _isLoaded = false;
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-            shouldLoad = true;
+        if (other.TryGetComponent<PlayerController>(out PlayerController playerController))
+            _shouldLoad = true;
     }
 
-    void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-            shouldLoad = false;
+        if (other.TryGetComponent<PlayerController>(out PlayerController playerController))
+            _shouldLoad = false;
     }
 }
