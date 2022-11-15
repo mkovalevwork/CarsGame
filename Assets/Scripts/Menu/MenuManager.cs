@@ -6,7 +6,7 @@ using System.Collections;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _chosenCar;
+    public static GameObject _chosenCar;
     [SerializeField] private CameraController _cameraController;
     [SerializeField] private UIController _UIController;
     
@@ -39,7 +39,6 @@ public class MenuManager : MonoBehaviour
     public void ChooseButton()
     {
         _chosenCar = _cars[_carIndex];
-        SaveActualCar.car = _chosenCar;
 ;
         _cameraController.ChangeCamera(_cameraController.camerasPositions.Count-1);
         _UIController.ChooseButton();

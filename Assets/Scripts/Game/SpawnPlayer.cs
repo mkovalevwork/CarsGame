@@ -7,9 +7,9 @@ public class SpawnPlayer : MonoBehaviour
 
     private void Start()
     {
-        SaveActualCar.car.transform.position = spawnPosition;                 //setPosition
-        SaveActualCar.car.transform.rotation = Quaternion.Euler(0, 0, 0);     //setRotation
-        SaveActualCar.car.AddComponent<PlayerController>();                   //addController
-        mainCamera.transform.SetParent(SaveActualCar.car.transform);          //cameraSetAsChild to player
+        MenuManager._chosenCar.transform.position = spawnPosition;                 //setPosition
+        MenuManager._chosenCar.transform.rotation = Quaternion.Euler(0, 0, 0);     //setRotation
+        MenuManager._chosenCar.AddComponent<PlayerController>();                   //addController
+        mainCamera.transform.SetParent(MenuManager._chosenCar.transform);          //cameraSetAsChild to player
     }
 }
