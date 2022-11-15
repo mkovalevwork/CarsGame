@@ -344,7 +344,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1568404776}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 10, y: 11, z: 0}
 --- !u!1 &228968809 stripped
 GameObject:
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 304535139}
   - component: {fileID: 304535138}
   m_Layer: 5
-  m_Name: ChoseButton
+  m_Name: ChooseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -654,7 +654,7 @@ RectTransform:
   - {fileID: 435227740}
   - {fileID: 425440649}
   m_Father: {fileID: 947612048}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -756,7 +756,7 @@ RectTransform:
   - {fileID: 504997464}
   - {fileID: 1100613072}
   m_Father: {fileID: 947612048}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1114,7 +1114,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1683928636}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: ChoseCarButton
+        m_MethodName: ChooseCarButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1273,8 +1273,59 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1568404776}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 10, y: 11, z: 0}
+--- !u!1 &548299812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 548299814}
+  - component: {fileID: 548299813}
+  m_Layer: 0
+  m_Name: CameraController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &548299813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548299812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c796da880f1bb3640b592580dab987f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCamera: {fileID: 1126917860}
+  camerasPositions:
+  - {fileID: 1311441435}
+  - {fileID: 923464292}
+  - {fileID: 903417510}
+  - {fileID: 2084213011}
+  - {fileID: 142929466}
+  - {fileID: 2116492355}
+--- !u!4 &548299814
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548299812}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1568404776}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &575691014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,7 +1499,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1568404776}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 10, y: 11, z: 0}
 --- !u!1 &923464291
 GameObject:
@@ -1478,8 +1529,52 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1568404776}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 10, y: 11, z: 0}
+--- !u!1 &935983316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 935983318}
+  - component: {fileID: 935983317}
+  m_Layer: 0
+  m_Name: UIController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &935983317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935983316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a295c0fc7e653c344a65e5dc6ef9a183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIMap: {fileID: 947612047}
+--- !u!4 &935983318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935983316}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 947612048}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &936283149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,7 +1665,7 @@ GameObject:
   - component: {fileID: 947612048}
   - component: {fileID: 947612047}
   m_Layer: 0
-  m_Name: UIManager
+  m_Name: UIMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1596,7 +1691,7 @@ MonoBehaviour:
   chooseCarButton: {fileID: 304535136}
   previosCarButton: {fileID: 435227739}
   nextCarButton: {fileID: 425440648}
-  LoadingBarCanvas: {fileID: 1371536732}
+  loadingBarCanvas: {fileID: 1371536732}
 --- !u!4 &947612048
 Transform:
   m_ObjectHideFlags: 0
@@ -1608,6 +1703,7 @@ Transform:
   m_LocalPosition: {x: -15.045126, y: 6.6741796, z: -9.328869}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 935983318}
   - {fileID: 347407646}
   - {fileID: 320814464}
   - {fileID: 1371536736}
@@ -1943,7 +2039,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1568404776}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 10, y: 11, z: 0}
 --- !u!1 &1336752521
 GameObject:
@@ -2313,7 +2409,7 @@ RectTransform:
   - {fileID: 314291149}
   - {fileID: 1766608195}
   m_Father: {fileID: 947612048}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2428,7 +2524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1568404776}
   m_Layer: 0
-  m_Name: Untility
+  m_Name: Cameras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2445,6 +2541,7 @@ Transform:
   m_LocalPosition: {x: 724.2982, y: 589.8498, z: -77.72244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 548299814}
   - {fileID: 1311441435}
   - {fileID: 923464292}
   - {fileID: 903417510}
@@ -2571,22 +2668,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95cf50b46d021224bad2a471101b7203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chosenCar: {fileID: 0}
-  mainCamera: {fileID: 1126917860}
-  UIManager: {fileID: 947612047}
-  cars:
+  _chosenCar: {fileID: 0}
+  _cameraController: {fileID: 548299813}
+  _UIController: {fileID: 935983317}
+  _cars:
   - {fileID: 2001843688}
   - {fileID: 1998116832}
   - {fileID: 1371456247}
   - {fileID: 228968809}
   - {fileID: 1403647284}
-  camerasPositions:
-  - {fileID: 1311441435}
-  - {fileID: 923464292}
-  - {fileID: 903417510}
-  - {fileID: 2084213011}
-  - {fileID: 142929466}
-  - {fileID: 2116492355}
   loadingProgressBar: {fileID: 1766608196}
 --- !u!4 &1683928637
 Transform:
@@ -2794,7 +2884,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1568404776}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 10, y: 11, z: 0}
 --- !u!1 &2116492354
 GameObject:
@@ -2824,7 +2914,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1568404776}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2039245752509576949
 PrefabInstance:

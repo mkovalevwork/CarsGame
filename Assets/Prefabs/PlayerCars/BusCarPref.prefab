@@ -354,8 +354,8 @@ GameObject:
   - component: {fileID: 5865364773809947336}
   - component: {fileID: 5865364773811001758}
   - component: {fileID: 5181023843139209474}
-  - component: {fileID: 6816312945305118285}
   - component: {fileID: 8392204407022591168}
+  - component: {fileID: -1390266591819694523}
   m_Layer: 0
   m_Name: BusCarPref
   m_TagString: Player
@@ -445,21 +445,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 7799a29fdee308341b16b65d8a002357, type: 3}
---- !u!114 &6816312945305118285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5865364773813232654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ab63cffcb71ceb4697945bed8611017, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carName: BusCar
-  carSpeedForward: 0.7
-  carSpeedRotation: 0.6
 --- !u!54 &8392204407022591168
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -476,6 +461,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-1390266591819694523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865364773813232654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acba023e9fd01c24586beecbb743dca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _carName: BusCar
+  _carSpeedForward: 0
+  _carSpeedRotation: 0
 --- !u!1 &5865364773813240586
 GameObject:
   m_ObjectHideFlags: 0
