@@ -21,7 +21,7 @@ public class MenuManager : MonoBehaviour
         
         if (_chosenCar != null)
         {
-            SaveActualCar.car.AddComponent<DontDestroyOnLoad>();           
+            DontDestroyOnLoad(_chosenCar);        
             scenesToLoad.Add(SceneManager.LoadSceneAsync(1));
             _UIController.StartButton();
             StartCoroutine("LoadingScreen");           

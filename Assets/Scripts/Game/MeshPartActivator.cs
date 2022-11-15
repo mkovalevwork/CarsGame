@@ -1,4 +1,3 @@
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public enum CheckMethod
@@ -7,14 +6,14 @@ public enum CheckMethod
     Trigger
 }
 
-public class ScenePartLoader : MonoBehaviour
+public class MeshPartActivator : MonoBehaviour
 {
     public CheckMethod checkMethod;
     public Transform player;
     public float loadRange;
 
-    private bool _isLoaded;
-    private bool _shouldLoad;
+    private bool _isEnable;
+    private bool _isDisable;
 
     private void Update()
     {
@@ -34,7 +33,7 @@ public class ScenePartLoader : MonoBehaviour
 
     private void TriggerCheck()
     {
-        if (_shouldLoad)
+        if (_isDisable)
             LoadScene();
         else
             UnLoadScene();
@@ -42,31 +41,37 @@ public class ScenePartLoader : MonoBehaviour
 
     private void LoadScene()
     {
-        if (!_isLoaded)
-        {
-            SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
-            _isLoaded = true;
-        }
+        if (!_isEnable)
+            ActivateRenderer();
     }
 
     private void UnLoadScene()
     {
-        if (_isLoaded)
-        {
-            SceneManager.UnloadSceneAsync(gameObject.name);
-            _isLoaded = false;
-        }
+        if (_isEnable) 
+            DeactivateRenderer();
+    }
+
+    private void ActivateRenderer()
+    {
+        GetComponent<MeshRenderer>().enabled = true;
+        _isEnable = true;
+    }
+
+    private void DeactivateRenderer()
+    {
+        GetComponent<MeshRenderer>().enabled = false;
+        _isEnable = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<PlayerController>(out PlayerController playerController))
-            _shouldLoad = true;
+            _isDisable = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.TryGetComponent<PlayerController>(out PlayerController playerController))
-            _shouldLoad = false;
+            _isDisable = false;
     }
 }

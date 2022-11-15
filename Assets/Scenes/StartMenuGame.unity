@@ -1305,7 +1305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 1126917860}
-  _camerasPositions:
+  camerasPositions:
   - {fileID: 1311441435}
   - {fileID: 923464292}
   - {fileID: 903417510}
@@ -1560,7 +1560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a295c0fc7e653c344a65e5dc6ef9a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _UIMap: {fileID: 947612047}
+  UIMap: {fileID: 947612047}
 --- !u!4 &935983318
 Transform:
   m_ObjectHideFlags: 0
